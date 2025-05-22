@@ -188,8 +188,7 @@ async function getElixirVersion(exSpec0, otpVersion0) {
 
   const userSuppliedOtp = exSpec0.match(/-otp-(\d+)/)?.[1] ?? null
 
-  if (userSuppliedOtp && isVersion(userSuppliedOtp) && userSuppliedOtp !== otpVersionMajor) {
-    core.warning(`Elixir built for Erlang/OTP ${userSuppliedOtp} does not match the specified Erlang/OTP version ${otpVersionMajor}`)
+  if (userSuppliedOtp && isVersion(userSuppliedOtp)) {
     otpVersionMajor = userSuppliedOtp
   }
 
